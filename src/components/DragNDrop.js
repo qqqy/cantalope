@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import ListOne from './ListOne/ListOne'
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -112,7 +113,8 @@ class DragNDrop extends Component {
   render() {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <Droppable droppableId="listOne">
+        <ListOne listOne={this.state.listOne} getListStyle={getListStyle} getItemStyle={getItemStyle} />
+        {/* <Droppable droppableId="listOne">
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
@@ -138,7 +140,7 @@ class DragNDrop extends Component {
               {provided.placeholder}
             </div>
           )}
-        </Droppable>
+        </Droppable> */}
         <Droppable droppableId="listTwo">
           {(provided, snapshot) => (
             <div
